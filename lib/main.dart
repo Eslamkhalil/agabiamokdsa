@@ -1,6 +1,8 @@
 import 'package:agabiamokdsa/modules/home_screen/home_screen.dart';
+import 'package:agabiamokdsa/shared/cubit/cubit.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
 
 
 import 'modules/board_screen/board_screen.dart';
@@ -34,7 +36,8 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return BlocProvider(create: (context) => PrayDayCubit(),
+    child: MaterialApp(
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
 
@@ -44,8 +47,12 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.deepOrange,
       ),
       home: Directionality(textDirection: TextDirection.rtl, child: widget),
+    ),
     );
+
+
   }
 }
 
 
+//Directionality(textDirection: TextDirection.rtl, child: widget)

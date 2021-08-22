@@ -74,6 +74,38 @@ void navigateAndFinish({@required context, @required Widget widget}) {
       MaterialPageRoute(builder: (context) => widget),
       (Route<dynamic> route) => false);
 }
+Widget buildPrayArticle({
+  dynamic model,
+  double fontSize = 24.0,
+}) {
+  return Column(
+    children: [
+      Center(
+          child: Text(
+
+            model.title ?? '',
+            textDirection: TextDirection.rtl,
+            style: TextStyle(
+
+              color: Colors.deepOrange,
+              fontSize: 30.0,
+              letterSpacing: 0.1,
+              fontWeight: FontWeight.bold,
+            ),
+          )),
+      Text(
+        model.body ?? '',
+        textDirection: TextDirection.rtl,
+        style: TextStyle(
+          color: Colors.white,
+          fontSize: fontSize,
+          letterSpacing: 0.1,
+          fontWeight: FontWeight.bold,
+        ),
+      ),
+    ],
+  );
+}
 
 Widget buildListPreyItem(HomeModel model ,{double width = 250 , double height = 150,Function onTap}) => InkWell(
   onTap: onTap,
